@@ -1,18 +1,31 @@
 import Login from "./components/Login";
 import Home from "./components/Home";
-import { getToken } from "./spotify";
-import { useState, useEffect } from "react";
+import { useDataContext } from "./components/DataLayer";
+
+import SpotifyWebApi from "spotify-web-api-js";
+import { getToken } from "./util/spotify";
+import { useEffect } from "react";
 import "./css/App.css";
 require("dotenv").config();
 
+const spotify = new SpotifyWebApi();
+
 function App() {
-  const [token, setToken] = useState("");
+  const [{ user, token }, dispatch] = useDataContext();
 
   useEffect(() => {
     const _token = getToken();
-    if (_token) setToken(_token);
+    if (_token) {
+      dispatch({ type: "SET_TOKEN", token: _token });
+
+      spotify.setAccessToken(_token);
+
+      spotify.getMe().then((user) => {
+        dispatch({ type: "SET_USER", user: user });
+      });
+    }
     window.location.hash = "";
-  }, []);
+  }, [dispatch]);
 
   return <div className="app">{token ? <Home /> : <Login />}</div>;
 }
