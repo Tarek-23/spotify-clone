@@ -1,0 +1,10 @@
+.sidebar {
+  /* Dev */
+  border: 1px solid red;
+
+  flex: 0.2;
+  min-width: max-content;
+  padding: 0 10px 0 10px;
+  background: #040404;
+  color: white;
+}

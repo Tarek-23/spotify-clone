@@ -1,5 +1,5 @@
 import Login from "./components/Login";
-import Home from "./components/Home";
+import Player from "./components/Player";
 import { useDataContext } from "./components/DataLayer";
 
 import SpotifyWebApi from "spotify-web-api-js";
@@ -27,7 +27,7 @@ function App() {
     window.location.hash = "";
   }, [dispatch]);
 
-  return <div className="app">{token ? <Home /> : <Login />}</div>;
+  return <div className="app">{token ? <Player /> : <Login />}</div>;
 }
 
 export default App;
