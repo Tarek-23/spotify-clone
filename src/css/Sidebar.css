@@ -3,8 +3,30 @@
   border: 1px solid red;
 
   flex: 0.2;
-  min-width: max-content;
-  padding: 0 10px 0 10px;
+  min-width: 230px;
+  padding: 16px 10px 0 10px;
   background: #040404;
   color: white;
+  line-height: 1em;
+  flex-direction: column;
+}
+
+.sidebar__logo {
+  padding-right: 39px;
+  margin: 0 0 18px;
+  height: 65px;
+}
+
+.sidebar__title {
+  text-transform: uppercase;
+  margin-left: 0.625em;
+  font-size: 0.75em;
+  padding: 0.3125em;
+  color: #b2b2b2;
+}
+
+.sidebar > hr {
+  width: 90%;
+  margin: 0.625em auto;
+  border-color: #282828;
 }

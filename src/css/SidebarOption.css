@@ -1,0 +1,31 @@
+.sidebarOption {
+  display: flex;
+  height: 2em;
+  border-radius: 4px;
+  padding: 0.5em;
+
+  align-items: center;
+  cursor: pointer;
+
+  color: #b2b2b2;
+  font-size: 0.875em;
+
+  transition: color 500ms ease;
+  -moz-transition: color 500ms ease;
+  -webkit-transition: color 500ms ease;
+  -o-transition: color 500ms ease;
+}
+
+.sidebarOption:hover {
+  color: white;
+  background-color: #282828;
+}
+
+/* .sidebarOption__icon {
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+} */
+
+.sidebarOption > h4 {
+  padding: 0 16px;
+}

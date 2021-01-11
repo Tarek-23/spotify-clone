@@ -11,7 +11,7 @@ require("dotenv").config();
 const spotify = new SpotifyWebApi();
 
 function App() {
-  const [{ user, token }, dispatch] = useDataContext();
+  const [{ token }, dispatch] = useDataContext();
 
   useEffect(() => {
     const _token = getToken();
@@ -22,6 +22,10 @@ function App() {
 
       spotify.getMe().then((user) => {
         dispatch({ type: "SET_USER", user: user });
+      });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({ type: "SET_PLAYLISTS", playlists: playlists });
       });
     }
     window.location.hash = "";
